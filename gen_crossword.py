@@ -243,8 +243,8 @@ def place_word(words, maxWords):
     random.shuffle(words)
     '''
     words = ['april', 'leather', 'cloud', 'dui']
-    #words = ['xxxdax', 'april']
-    #words = ['april', 'leather', 'cloud']
+    words = ['xxxdax', 'april']
+    words = ['april', 'leather', 'cloud']
 
     word = words.pop()
     horizontal = True
@@ -283,18 +283,19 @@ def place_word(words, maxWords):
                         is1d = False
                     new_x = x
                     new_y = y
-                    '''
+                    
                     if (not is1d):
                         print('not 1d')
                         tmpx = x
                         new_x = y
                         new_y = tmpx
-                    '''
-                    print(x, y)
-                    if crossword[x][y] == letter:
-                        print('matched letter', crossword[x][y], x, y, word)
+                    
+                    print(new_x, new_y)
+                    print(crossword[new_x][new_y])
+                    if crossword[new_x][new_y] == letter:
+                        print('matched letter', crossword[new_x][new_y], new_x, new_y, word)
                         print(crossword)
-                        placement, ok = canPlace(word, crossword, x, y)
+                        placement, ok = canPlace(word, crossword, new_x, new_y)
                         if ok:
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)
                             count = count + 1

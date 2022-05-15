@@ -129,10 +129,11 @@ def canPlace(word, crossword, x, y):
 
     else: #2d
         matched_letter = crossword[x][y]
-        
+        '''
         xtmp = x
         x = y
         y = xtmp
+        '''
         
         # check vertical alignment
         print('checking vertial alignment...')
@@ -173,16 +174,20 @@ def canPlace(word, crossword, x, y):
             slides += 1
 
         # check horizontal alignment
+
         print('checking horizontal alignment...')
         slides = 0
         for letter in word:
             valid = True
             if valid and letter == matched_letter:
                 for i in range(len(word)):
-                    x_pos = x - slides + i
-                    print('slides', slides)
-                    print('i', i)
-                    if (x_pos > 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                    #x_pos = x - slides + i
+                    y_pos = y - slides + i
+                    print('checking spot', x, y_pos)
+                    print(crossword[x])
+                    print('letter: ' + word[i])
+                    print(y_pos < len(crossword[0]))
+                    if (y_pos < len(crossword[0]) and letter != crossword[x][y_pos] and crossword[x][y_pos] != '▀'):
                         valid = False
                         print('check empty space failed')
                         break
@@ -190,30 +195,31 @@ def canPlace(word, crossword, x, y):
                     # check for other interferences
 
                     # check up and down
-                    if not (x_pos == x):
-                        print(x_pos > 0, x_pos < len(crossword[0]), crossword[x_pos - 1][y] != '▀', crossword[x_pos + 1][y] != '▀')
-                        print(crossword[x_pos][y])                       
-                        print(crossword[x_pos][y - 1])
-                        print(x_pos, y - 1)
-                        if (x_pos > 0 and x_pos < len(crossword[0]) and \
-                            (crossword[x_pos - 1][y] != '▀' or crossword[x_pos + 1][y] != '▀')):
-                            print('check up and down failed')
+                    if not (y_pos == y):
+                        print('checking up and down')
+                        if (y_pos < len(crossword[0]) and x < len(crossword[0]) and \
+                            (crossword[x - 1][y_pos] != '▀' or crossword[x + 1][y_pos] != '▀')):
+                            print('check right and left failed')
                             valid = False
                             break
-                    # check left
-                    if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos - 1][y] != '▀':
-                        print('checking left failed')
+                    # check right
+                    print('checking right')
+                    if i == 0 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != '▀':
+                        print('checking right failed')
                         valid = False
                         break
-                    # check down
-                    if i == 0 and x_pos + 1 <= len(crossword) and crossword[x_pos + 1][y] != '▀':
-                        print('checking down failed')
+                    # check left
+                    print('checking left')
+                    print(y_pos + 1 <= len(crossword[0]))
+                    print(i == 0)
+                    if i == len(crossword[0]) and y_pos + 1 <= len(crossword[0]) and crossword[x][y_pos + 1] != '▀':
+                        print('checking left failed')
                         valid = False
                         break
 
                 # found valid spot
                 if (valid):
-                    placement = Placement(x - slides, y, True)
+                    placement = Placement(y - slides, x, True)
                     return placement, True
             slides += 1
 
@@ -237,6 +243,9 @@ def place_word(words, maxWords):
     random.shuffle(words)
     '''
     words = ['april', 'leather', 'cloud', 'dui']
+    #words = ['xxxdax', 'april']
+    #words = ['april', 'leather', 'cloud']
+
     word = words.pop()
     horizontal = True
     crossword = place(word, None, 0, 0, horizontal)

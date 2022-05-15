@@ -128,37 +128,102 @@ def canPlace(word, crossword, x, y):
         return None, False
 
     else: #2d
-        # check horizontal alignment
-        horizontal = True
-        i = 0
+        matched_letter = crossword[x][y]
+        xtmp = x
+        x = y
+        y = xtmp
+        # check vertical alignment
+        print('checking vertial alignment...')
+        slides = 0
         for letter in word:
-            if (crossword[x][y + i] != letter and crossword[x][y + i] != '▀'):
-                horizontal = False
-                break
-            i += 1
+            valid = True
+            if valid and letter == matched_letter:
+                for i in range(len(word)):
+                    y_pos = y - slides + i
+                    if (y_pos > 0 and letter != crossword[x][y_pos] and crossword[x][y_pos] != '▀'):
+                        valid = False
+                        break
 
-        if horizontal:
-            placement = Placement(x, y, True)
-            return placement, True
+                    # check for other interferences
+
+                    # check side to side
+                    if not (y_pos == y):
+                        if (y_pos > 0 and (crossword[x - 1][y_pos] != '▀' or crossword[x + 1][y_pos] != '▀')):
+                            valid = False
+                            break
+                    # check up
+                    if i == len(word) - 1 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != '▀':
+                        valid = False
+                        break
+                    # check down
+                    if (matched_letter == 'l'):
+                        print('should be True, True, True')
+                        print(i == 0, y_pos + 1 <= len(crossword), crossword[x][y_pos] != '▀', crossword[x][y_pos])
+                    if i == 0 and y_pos + 1 <= len(crossword) and crossword[x][y_pos] != '▀':
+                        print('this should exit')
+                        valid = False
+                        break
+
+                # found valid spot
+                if (valid):
+                    placement = Placement(x, y - slides, False)
+                    return placement, True
+            slides += 1
+
+        # check horizontal alignment
+        print('checking horizontal alignment...')
+        slides = 0
+        for letter in word:
+            valid = True
+            if valid and letter == matched_letter:
+                for i in range(len(word)):
+                    x_pos = x - slides + i
+                    print('slides', slides)
+                    print('i', i)
+                    if (x_pos > 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                        valid = False
+                        print('check empty space failed')
+                        break
+
+                    # check for other interferences
+
+                    # check up and down
+                    if not (x_pos == x):
+                        print(x_pos > 0, x_pos < len(crossword[0]), crossword[x_pos - 1][y] != '▀', crossword[x_pos + 1][y] != '▀')
+                        print(crossword[x_pos][y])                       
+                        print(crossword[x_pos][y - 1])
+                        print(x_pos, y - 1)
+                        if (x_pos > 0 and x_pos < len(crossword[0]) and \
+                            (crossword[x_pos - 1][y] != '▀' or crossword[x_pos + 1][y] != '▀')):
+                            print('check up and down failed')
+                            valid = False
+                            break
+                    # check left
+                    if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos - 1][y] != '▀':
+                        print('checking left failed')
+                        valid = False
+                        break
+                    # check down
+                    if i == 0 and x_pos + 1 <= len(crossword) and crossword[x_pos + 1][y] != '▀':
+                        print('checking down failed')
+                        print('this should exit')
+                        valid = False
+                        break
+
+                # found valid spot
+                if (valid):
+                    placement = Placement(x - slides, y, True)
+                    return placement, True
+            slides += 1
 
         # check vertical alignment
-        vertical = True
-        i = 0
-        for letter in word:
-            if (crossword[x + i][y] != letter and crossword[x + i][y] != '▀'):
-                vertical = False
-                break
-            i += 1
-
-        if vertical:
-            placement = Placement(x, y, False)
-            return placement, True  
-    
-
     return None, False
 
 def place_word(words, maxWords):
+    '''
     random.shuffle(words)
+    '''
+    words = ['april', 'leather', 'cloud']
     word = words.pop()
     horizontal = True
     crossword = place(word, None, 0, 0, horizontal)
@@ -194,12 +259,16 @@ def place_word(words, maxWords):
                         is1d = True
                     else:
                         is1d = False
+                    new_x = x
+                    new_y = y
                     if (not is1d):
                         tmpx = x
-                        x = y
-                        y = tmpx
+                        new_x = y
+                        new_y = tmpx
+                    print(x, y)
                     if crossword[x][y] == letter:
                         print('matched letter', crossword[x][y], x, y, word)
+                        print(crossword)
                         placement, ok = canPlace(word, crossword, x, y)
                         if ok:
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)

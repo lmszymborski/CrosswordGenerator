@@ -129,9 +129,11 @@ def canPlace(word, crossword, x, y):
 
     else: #2d
         matched_letter = crossword[x][y]
+        
         xtmp = x
         x = y
         y = xtmp
+        
         # check vertical alignment
         print('checking vertial alignment...')
         slides = 0
@@ -206,7 +208,6 @@ def canPlace(word, crossword, x, y):
                     # check down
                     if i == 0 and x_pos + 1 <= len(crossword) and crossword[x_pos + 1][y] != '▀':
                         print('checking down failed')
-                        print('this should exit')
                         valid = False
                         break
 
@@ -219,11 +220,23 @@ def canPlace(word, crossword, x, y):
         # check vertical alignment
     return None, False
 
+def updateRows(crossword):
+    if len(crossword[0]) == 1:
+        is1d = True
+    else:
+        is1d = False
+    rows = len(crossword)
+    cols = len(crossword[0])
+    if is1d:
+        rows = 1
+        cols = len(crossword)
+    return rows, cols
+
 def place_word(words, maxWords):
     '''
     random.shuffle(words)
     '''
-    words = ['april', 'leather', 'cloud']
+    words = ['april', 'leather', 'cloud', 'dui']
     word = words.pop()
     horizontal = True
     crossword = place(word, None, 0, 0, horizontal)
@@ -246,7 +259,7 @@ def place_word(words, maxWords):
         print('crossword num cols', cols)
         #crossword = place(word, crossword, random.randint(0, cols - 1), random.randint(0, rows - 1), random.choice([True, False]))
         #count += 1
-
+        spotFound = False
         for letter in word:
             for y in range(rows):
                 for x in range(cols):
@@ -261,10 +274,13 @@ def place_word(words, maxWords):
                         is1d = False
                     new_x = x
                     new_y = y
+                    '''
                     if (not is1d):
+                        print('not 1d')
                         tmpx = x
                         new_x = y
                         new_y = tmpx
+                    '''
                     print(x, y)
                     if crossword[x][y] == letter:
                         print('matched letter', crossword[x][y], x, y, word)
@@ -273,7 +289,12 @@ def place_word(words, maxWords):
                         if ok:
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)
                             count = count + 1
-                            continue
+                            spotFound = True
+                            break
+                if spotFound:
+                    break
+            if spotFound:
+                break
                     
                 
 

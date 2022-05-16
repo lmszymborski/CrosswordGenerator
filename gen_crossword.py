@@ -88,7 +88,6 @@ def place(word, crossword, x, y, horizontal):
                     else:
                         crossword = np.vstack([crossword, gen_empty_row(len(crossword[0]))])
                     is1d = False
-                #print('changing letter at', x, y + i, crossword[x][y + i])
                 if is1d:
                     crossword[x] = word_lst[i]
                 else:
@@ -110,14 +109,12 @@ def canPlace(word, crossword, x, y):
                 return placement, True
             slides += 1
 
-        print('hm')
         return None, False
 
     else: #2d
         matched_letter = crossword[x][y]
         
         # check vertical alignment
-        print('checking vertial alignment...')
         slides = 0
         for letter in word:
             valid = True
@@ -125,37 +122,30 @@ def canPlace(word, crossword, x, y):
                 for i in range(len(word)):
                     x_pos = x - slides + i
                     if (x_pos < 0 or x_pos >= len(crossword)):
-                        print('skip', x_pos)
                         continue
 
                     if (x_pos > 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
-                        print('empty space failed')
                         valid = False
                         break
 
                     # check for other interferences
 
                     # check side to side
-                    print('checking side to side', y, crossword[x_pos])
                     if not (x_pos == x):
                         if (x_pos < len(crossword) and x_pos > 0):
                             if (y - 1 >= 0 and crossword[x_pos][y - 1] != '▀'):
                                 valid = False
-                                print('side to side failed first')
                                 break
                             if (y + 1 < len(crossword[0]) and crossword[x_pos][y + 1] != '▀'):
                                 valid = False
-                                print('side to side failed second')
                                 break
 
-                    # check up
-                    if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos - 1][y] != '▀':
-                        print('check up failed')
+                    # check down
+                    if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos + 1][y] != '▀':
                         valid = False
                         break
-                    # check down
-                    if i == 0 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != '▀':
-                        print('check down failed')
+                    # check up
+                    if i == 0 and x_pos + 1 < len(crossword) and crossword[x_pos - 1][y] != '▀':
                         valid = False
                         break
 
@@ -167,7 +157,6 @@ def canPlace(word, crossword, x, y):
 
         # check horizontal alignment
 
-        print('checking horizontal alignment...')
         slides = 0
         for letter in word:
             valid = True
@@ -180,7 +169,6 @@ def canPlace(word, crossword, x, y):
 
                     if not (letter == crossword[x][y_pos] or crossword[x][y_pos] == '▀'):
                         valid = False
-                        print('check empty space failed')
                         break
 
 
@@ -191,22 +179,18 @@ def canPlace(word, crossword, x, y):
                         if (y_pos < len(crossword[0]) and y_pos >= 0):
                             if (x - 1>= 0 and crossword[x - 1][y_pos] != '▀'):
                                 valid = False
-                                print('check up down failed')
                                 break
                             if (x + 1 < len(crossword) and crossword[x + 1][y_pos] != '▀'):
-                                print('check up down failed')
                                 valid = False
                                 break
 
                     # check left
                     if i == 0 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != '▀':
-                        print('checking left failed')
                         valid = False
                         break
 
                     # check right
                     if i == len(word) - 1 and y_pos + 1 < len(crossword[0]) and crossword[x][y_pos + 1] != '▀':
-                        print('checking right failed')
                         valid = False
                         break
 
@@ -234,7 +218,7 @@ def updateRows(crossword):
 def place_word(words, maxWords):
     
     random.shuffle(words)
-    '''
+    ''
     words = ['april', 'leather', 'cloud', 'dui']
     #words = ['are','lxx','leather']
     #words = ['xxxdax', 'april']
@@ -242,7 +226,8 @@ def place_word(words, maxWords):
     words = ['cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
     words = ['visualstudiocode', 'cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
     words = ['visualstudiocode', 'cloud', 'tinkerbell', 'cap', 'april', 'traderjoes', 'puma']
-    '''
+    words = ['leather', 'tinkerbell', 'cloud', 'april', 'traderjoes', 'visualstudiocode', 'puma']
+    ''
 
     word = words.pop()
     horizontal = True
@@ -261,8 +246,7 @@ def place_word(words, maxWords):
             cols = len(crossword)
         #rows = len(crossword[0])
         #cols = len(crossword)
-        print('crossword num rows', rows)
-        print('crossword num cols', cols)
+
         #crossword = place(word, crossword, random.randint(0, cols - 1), random.randint(0, rows - 1), random.choice([True, False]))
         #count += 1
         spotFound = False
@@ -282,7 +266,6 @@ def place_word(words, maxWords):
                         new_y = tmpx
                     
                     if crossword[new_x][new_y] == letter:
-                        print('matched letter', crossword[new_x][new_y], new_x, new_y, word)
                         placement, ok = canPlace(word, crossword, new_x, new_y)
                         if ok:
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)
@@ -298,7 +281,6 @@ def place_word(words, maxWords):
                 
 
                         
-    print(word)
 
 
 def main():

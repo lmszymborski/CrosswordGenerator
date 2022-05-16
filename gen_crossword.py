@@ -49,7 +49,6 @@ def place(word, crossword, x, y, horizontal):
                 rows = len(crossword[0])
                 cols = len(crossword)
             while (y < 0):
-                print('y is', y)
                 if is1d:
                     crossword = np.vstack([gen_empty_row(len(crossword)), crossword])
                     is1d = False
@@ -125,7 +124,12 @@ def canPlace(word, crossword, x, y):
             if valid and letter == matched_letter:
                 for i in range(len(word)):
                     x_pos = x - slides + i
+                    if (x_pos < 0 or x_pos >= len(crossword)):
+                        print('skip', x_pos)
+                        continue
+
                     if (x_pos > 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                        print('empty space failed')
                         valid = False
                         break
 
@@ -133,27 +137,25 @@ def canPlace(word, crossword, x, y):
 
                     # check side to side
                     print('checking side to side', y, crossword[x_pos])
-                    if (y + 1 < len(crossword[0])):
-                        print(crossword[x_pos][y + 1])
-                    if (y - 1 > 0):
-                        print(crossword[x_pos][y - 1])
-                    print(x_pos < len(crossword), x_pos >= 0, x_pos, y - 1 >= 0, y + 1 < len(crossword[0]))
                     if not (x_pos == x):
                         if (x_pos < len(crossword) and x_pos > 0):
-                            if (y - 1 >= 0 and crossword[x_pos][y - 1]):
+                            if (y - 1 >= 0 and crossword[x_pos][y - 1] != '▀'):
                                 valid = False
+                                print('side to side failed first')
                                 break
-                            if (y + 1 < len(crossword[0]) and crossword[x_pos][y + 1]):
+                            if (y + 1 < len(crossword[0]) and crossword[x_pos][y + 1] != '▀'):
                                 valid = False
+                                print('side to side failed second')
                                 break
 
                     # check up
                     if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos - 1][y] != '▀':
+                        print('check up failed')
                         valid = False
                         break
                     # check down
-                    if i == 0 and x_pos + 1 <= len(crossword) and crossword[x_pos + 1][y] != '▀':
-                        print('this should exit')
+                    if i == 0 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != '▀':
+                        print('check down failed')
                         valid = False
                         break
 
@@ -173,31 +175,38 @@ def canPlace(word, crossword, x, y):
                 for i in range(len(word)):
                     #x_pos = x - slides + i
                     y_pos = y - slides + i
-                    if (y_pos < len(crossword[0]) and letter != crossword[x][y_pos] and crossword[x][y_pos] != '▀'):
+                    if (y_pos < 0 or y_pos >= len(crossword[0])):
+                        continue
+
+                    if not (letter == crossword[x][y_pos] or crossword[x][y_pos] == '▀'):
                         valid = False
                         print('check empty space failed')
                         break
+
 
                     # check for other interferences
 
                     # check up and down
                     if not (y_pos == y):
                         if (y_pos < len(crossword[0]) and y_pos >= 0):
-                            if (x >= 0 and crossword[x - 1][y_pos] != '▀'):
+                            if (x - 1>= 0 and crossword[x - 1][y_pos] != '▀'):
                                 valid = False
+                                print('check up down failed')
                                 break
-                            if (x < len(crossword[0]) and crossword[x + 1][y_pos]):
+                            if (x + 1 < len(crossword) and crossword[x + 1][y_pos] != '▀'):
+                                print('check up down failed')
                                 valid = False
                                 break
 
-                    # check right
+                    # check left
                     if i == 0 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != '▀':
-                        print('checking right failed')
+                        print('checking left failed')
                         valid = False
                         break
-                    # check left
-                    if i == len(crossword[0]) and y_pos + 1 < len(crossword[0]) and crossword[x][y_pos + 1] != '▀':
-                        print('checking left failed')
+
+                    # check right
+                    if i == len(word) - 1 and y_pos + 1 < len(crossword[0]) and crossword[x][y_pos + 1] != '▀':
+                        print('checking right failed')
                         valid = False
                         break
 
@@ -225,15 +234,15 @@ def updateRows(crossword):
 def place_word(words, maxWords):
     
     random.shuffle(words)
-    ''
+    '''
     words = ['april', 'leather', 'cloud', 'dui']
     #words = ['are','lxx','leather']
     #words = ['xxxdax', 'april']
     #words = ['april', 'leather', 'cloud']
     words = ['cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
-   # words = ['visualstudiocode', 'cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
-
-    ''
+    words = ['visualstudiocode', 'cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
+    words = ['visualstudiocode', 'cloud', 'tinkerbell', 'cap', 'april', 'traderjoes', 'puma']
+    '''
 
     word = words.pop()
     horizontal = True
@@ -248,7 +257,6 @@ def place_word(words, maxWords):
         rows = len(crossword)
         cols = len(crossword[0])
         if is1d:
-            print('is1d')
             rows = 1
             cols = len(crossword)
         #rows = len(crossword[0])

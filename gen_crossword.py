@@ -125,7 +125,7 @@ def canPlace(word, crossword, x, y):
                     x_pos = x - slides + i
                     if (x_pos < 0 or x_pos >= len(crossword)):
                         continue
-                    if (x_pos >= 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                    if (x_pos >= 0 and word[i] != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
                         valid = False
                         break
 
@@ -142,8 +142,6 @@ def canPlace(word, crossword, x, y):
                                 break
 
                     # check down
-                    if (word == 'product'):
-                        print(x_pos, len(crossword[x_pos - 1]))
                     if i == len(word) - 1 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != '▀':
                         valid = False
                         break
@@ -222,8 +220,7 @@ def place_word(words, maxWords):
     #TODO: optimize
     #TODO: if word gets skipped, put back in word list. if word at end of list gets skipped, then it gets emitted
     random.shuffle(words)
-    ''
-    words = ['april', 'leather', 'cloud', 'dui']
+    '''
     #words = ['are','lxx','leather']
     #words = ['xxxdax', 'april']
     #words = ['april', 'leather', 'cloud']
@@ -233,7 +230,9 @@ def place_word(words, maxWords):
     words = ['cap', 'leather', 'tinkerbell', 'cloud', 'april', 'traderjoes', 'visualstudiocode', 'puma']
     words = ['provide', 'choice', 'build', 'special', 'threat', 'set', 'firm', 'popular', 'exactly', 'first', 'word', 'country', 'final', 'doctor', 'article', 'with', 'history', 'ahead', 'least', 'enjoy', 'travel', 'mother', 'away', 'hope', 'dinner', 'offer', 'clear', 'his', 'north', 'option', 'know', 'understand', 'politics', 'truth', 'herself', 'listen', 'culture', 'thank', 'around', 'activity', 'claim', 'too', 'responsibility', 'range', 'court', 'lawyer', 'Democrat', 'east', 'leg', 'believe']
     words = ['responsibility', 'two', 'a', 'as', 'prepare', 'education', 'population', 'project', 'we', 'live', 'east', 'have', 'not', 'recognize', 'evening', 'probably', 'nearly', 'also', 'team', 'compare', 'try', 'health', 'establish', 'charge', 'specific', 'environmental', 'food', 'and', 'you', 'it', 'policy', 'finally', 'blue', 'west', 'firm', 'task', 'ball', 'its', 'data', 'matter', 'pass', 'product', 'offer', 'shoulder', 'rich', 'at', 'line', 'how', 'cold', 'business']
-    ''
+    words = ['dui', 'april', 'leather', 'cloud']
+
+    '''
     print(words)
 
     word = words.pop()
@@ -285,6 +284,28 @@ def place_word(words, maxWords):
             if spotFound:
                 break
     return crossword, count
+
+def score(crossword):
+    num_rows = len(crossword)
+    num_cols = len(crossword[0])
+
+    sizeRatio = num_rows / num_cols
+    if num_rows > num_cols:
+        sizeRatio = num_cols / num_rows
+
+    filled = 0
+    empty = 0
+
+    for y in num_rows:
+        for x in num_cols:
+            if crossword[y][x] == '▀':
+                empty += 1
+            else:
+                filled += 1
+    
+    filledRatio = filled / empty
+    return (sizeRatio * 10) + (filledRatio * 20)
+
 
 def write_file(crossword, count, filename):
     with open(filename + '.txt', 'w') as f:

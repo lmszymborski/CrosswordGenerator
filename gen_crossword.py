@@ -7,12 +7,13 @@ class Placement:
         self.y = y
         self.direction = direction
 
-def load_file():
+def load_file(filename, limit = 1000):
     words = []
-    with open("example_1.txt", "r") as file:
+    with open(filename, "r") as file:
         for line in file:
             word = line.strip()
             words.append(word)
+    words = random.sample(words, limit)
     return words
 
 def gen_empty_row(length):
@@ -123,8 +124,7 @@ def canPlace(word, crossword, x, y):
                     x_pos = x - slides + i
                     if (x_pos < 0 or x_pos >= len(crossword)):
                         continue
-
-                    if (x_pos > 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                    if (x_pos >= 0 and letter != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
                         valid = False
                         break
 
@@ -216,7 +216,8 @@ def updateRows(crossword):
     return rows, cols
 
 def place_word(words, maxWords):
-    
+    #TODO: optimize
+    #TODO: if word gets skipped, put back in word list. if word at end of list gets skipped, then it gets emitted
     random.shuffle(words)
     ''
     words = ['april', 'leather', 'cloud', 'dui']
@@ -226,8 +227,10 @@ def place_word(words, maxWords):
     words = ['cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
     words = ['visualstudiocode', 'cloud', 'tinkerbell', 'april', 'cap', 'puma', 'traderjoes', 'leather']
     words = ['visualstudiocode', 'cloud', 'tinkerbell', 'cap', 'april', 'traderjoes', 'puma']
-    words = ['leather', 'tinkerbell', 'cloud', 'april', 'traderjoes', 'visualstudiocode', 'puma']
+    words = ['cap', 'leather', 'tinkerbell', 'cloud', 'april', 'traderjoes', 'visualstudiocode', 'puma']
+    words = ['provide', 'choice', 'build', 'special', 'threat', 'set', 'firm', 'popular', 'exactly', 'first', 'word', 'country', 'final', 'doctor', 'article', 'with', 'history', 'ahead', 'least', 'enjoy', 'travel', 'mother', 'away', 'hope', 'dinner', 'offer', 'clear', 'his', 'north', 'option', 'know', 'understand', 'politics', 'truth', 'herself', 'listen', 'culture', 'thank', 'around', 'activity', 'claim', 'too', 'responsibility', 'range', 'court', 'lawyer', 'Democrat', 'east', 'leg', 'believe']
     ''
+    print(words)
 
     word = words.pop()
     horizontal = True
@@ -269,7 +272,7 @@ def place_word(words, maxWords):
                         placement, ok = canPlace(word, crossword, new_x, new_y)
                         if ok:
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)
-                            count = count + 1
+                            count += 1
                             spotFound = True
                             print(crossword)
                             break
@@ -277,15 +280,27 @@ def place_word(words, maxWords):
                     break
             if spotFound:
                 break
-                    
-                
+    return crossword, count
+
+def write_file(crossword, filename):
+    with open(filename + '.txt', 'w') as f:
+        num_rows = len(crossword)
+        num_cols = len(crossword[0])
+        for row in range(num_rows):
+            for col in range(num_cols):
+                if col == num_cols - 1:
+                    f.write(crossword[row][col] + '\n')
+                else:
+                    f.write(crossword[row][col] + ' ')
+
 
                         
 
 
 def main():
-    words = load_file()
-    place_word(words, len(words))
+    words = load_file('common_words.txt', 50)
+    crossword = place_word(words, len(words))
+    write_file(crossword, 'crossword')
 
 if __name__ == '__main__':
     main()

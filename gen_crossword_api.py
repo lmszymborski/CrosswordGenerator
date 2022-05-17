@@ -17,21 +17,19 @@ import requests
 # https://www.baeldung.com/cs/generate-crossword-puzzle
 # https://github.com/pmaher86/blacksquare/tree/master/blacksquare
 
-EMPTY_CHAR = '▀'
-
 class Placement:
     def __init__(self, x, y, direction):
         self.x = x
         self.y = y
         self.direction = direction
 
-class Clue:
-    def __init__(self, num, across, definition, x_y, word):
-        self.num = num
-        self.across = across
-        self.definition = definition
-        self.x_y = x_y
-        self.word = word
+def get_data(api):
+    response = requests.get(f"{api}")
+    if (response.status_code == 200):
+        print("successfully fetched data")
+        print(response.json())
+    else:
+        print(f"Hello person, there's a {response.status_code} error with your request")
 
 def load_file(filename, limit = 1000):
     words = []
@@ -40,15 +38,13 @@ def load_file(filename, limit = 1000):
             word = line.strip().lower()
             if (len(word) < 2):
                 continue
-            word = ''.join(ch for ch in word if ch.isalnum())
             words.append(word)
-            string_value = "alphanumeric@123__"
     return words
 
 def gen_empty_row(length):
     row = []
     for i in range(length):
-        row.append(EMPTY_CHAR)
+        row.append('▀')
     return row
 
 def place(word, crossword, x, y, horizontal):
@@ -96,7 +92,7 @@ def place(word, crossword, x, y, horizontal):
                 if (cols <= x + i):
                     if is1d:
                         #crossword = np.hstack([crossword, '▀'])
-                        crossword.append(EMPTY_CHAR)
+                        crossword.append('▀')
                     else:
                         new_col = np.array([gen_empty_row(rows)]).T
                         crossword = np.append(crossword, new_col, axis = 1)
@@ -260,7 +256,6 @@ def generate(words, maxWords, sort_words=True):
     words = ['dui', 'april', 'leather', 'cloud']
     words = ['xxxx', 'abcd', 'aegh', 'slekt', 'selkqj', 'sdkjg']
     '''
-    crossword_list = {}
     if (sort_words):
         words = random.sample(words, maxWords)
         words = sorted(words, key=len)
@@ -303,19 +298,12 @@ def generate(words, maxWords, sort_words=True):
                             crossword = place(word, crossword, placement.x, placement.y, placement.direction)
                             count += 1
                             spotFound = True
-                            crossword_list[word] = placement
-                            if (placement.x < 0):
-                                for word_place in crossword_list:
-                                    crossword_list[word_place].x -= placement.x
-                            if (placement.y < 0):
-                                for word_place in crossword_list:
-                                    crossword_list[word_place].y -= placement.y
                             break
                 if spotFound:
                     break
             if spotFound:
                 break
-    return crossword, count, crossword_list
+    return crossword, count
 
 def generate_score(crossword):
     num_rows = len(crossword)
@@ -353,64 +341,23 @@ def repeated_generation(words, maxWords, iterations, threshold, sort_words):
     result = None
     saved_count = 0
     save_word_list = copy.deepcopy(words)
-    best_crossword_list = None
     scores = []
     for i in range(iterations):
         print("Iteration", i + 1, "of", iterations)
         words = copy.deepcopy(save_word_list)
-        crossword, count, crossword_list = generate(words, maxWords, sort_words)
+        crossword, count = generate(words, maxWords, sort_words)
         score = generate_score(crossword)
         scores.append(score)
         if (score > maxScore and count > threshold * maxWords):
             maxScore = score
             result = crossword
             saved_count = count
-            best_crossword_list = crossword_list
         if (score < minScore):
             minScore = score
             worstResult = crossword
             saved_worst_count = count
-    return result, saved_count, worstResult, saved_worst_count, scores, best_crossword_list
+    return result, saved_count, worstResult, saved_worst_count, scores
 
-def get_definition(word):
-    api = 'https://api.dictionaryapi.dev/api/v2/entries/en/' + word
-    response = requests.get(f"{api}")
-    if (response.status_code == 200):
-        response = response.json()[0]
-        definition = response['meanings'][0]['definitions'][0]['definition']
-        return definition
-    else:
-        return None
-        print(f"Hello person, there's a {response.status_code} error with your request")
-
-def question_to_word(crossword_list):
-    # each word needs to have a number, direction, and definition
-    x_y_pairs = {} 
-    for word in crossword_list:
-        x_y_str = str(crossword_list[word].x) + '_' + str(crossword_list[word].y)
-
-        if x_y_str not in x_y_pairs:
-            x_y_pairs[x_y_str] = {}
-        x_y_pairs[x_y_str][word] = [crossword_list[word].direction]
-    
-    clues = []
-    count = 1
-    unfound_words = []
-    for x_y in x_y_pairs:
-        for word in x_y_pairs[x_y]:
-            direction = x_y_pairs[x_y][word]
-            definition = get_definition(word)
-            if definition == None:
-                unfound_words.append(word)
-                definition = "No definition found. Giving this word to you: " + word
-            clue = Clue(count, direction, definition, x_y, word)
-            clues.append(clue)
-        count += 1
-
-    for clue in clues:
-        print('num:', clue.num, 'x_y:', clue.x_y, 'word:', clue.word, 'direction', clue.across, clue.definition)
-    return clues
-        
 
 def write_file(crossword, count, filename, maxWords):
     with open(filename + '.txt', 'w') as f:
@@ -424,48 +371,21 @@ def write_file(crossword, count, filename, maxWords):
                     f.write(crossword[row][col] + ' ')
         f.write('\n' + 'Total words: ' + str(count) + '/' + str(maxWords))
 
-def print_empty(crossword, clues, filename):
-    with open(filename + '.txt', 'w') as f:
-        num_rows = len(crossword)
-        num_cols = len(crossword[0])
-        for clue in clues:
-            x, y = clue.x_y.split('_')
-            print(clue.num)
-            crossword[int(y)][int(x)] = clue.num
-            print(crossword[int(y)][int(x)] )
-        for row in range(num_rows):
-            for col in range(num_cols):
-                char = crossword[row][col]
-                if char != '▀' and not char.isnumeric():
-                    char = '_'
-                if col == num_cols - 1:
-                    f.write(char + '\n')
-                else:
-                    f.write(char + ' ')
-        f.write('\nAcross\tDown')
-
-
 def main():
     maxWords = 25
     iterations = 1
-    words_4000 = '4000_common_words.txt'
-    threshold = .99
-    if (words_4000):
-        sample_size = '4000 words'
-    words = load_file(words_4000)
+    words = load_file('common_words.txt')
 
+    get_data('https://api.dictionaryapi.dev/api/v2/entries/en/')
     # sorted
-    crossword, count, worst_crossword, worst_count, scores, crossword_list = repeated_generation(words, maxWords, iterations, .99, True)
-    print(crossword)
-    write_stats(scores, iterations, 'sorted_stats' + '_' + str(iterations) + '_' + sample_size)
+    crossword, count, worst_crossword, worst_count, scores = repeated_generation(words, maxWords, iterations, .9, True)
+    write_stats(scores, iterations, 'sorted_stats' + '_' + str(iterations))
     write_file(crossword, count, 'crossword', maxWords)
     write_file(worst_crossword, worst_count, 'worst_crossword', maxWords)
-    clues = question_to_word(crossword_list)
-    print_empty(crossword, clues, 'empty_puzzle')
 
     # unsorted
-    crossword, count, worst_crossword, worst_count, scores, crossword_list = repeated_generation(words, maxWords, iterations, .99, False)
-    write_stats(scores, iterations, 'unsorted_stats' + '_' + str(iterations) + '_' + sample_size)
+    crossword, count, worst_crossword, worst_count, scores = repeated_generation(words, maxWords, iterations, .9, False)
+    write_stats(scores, iterations, 'unsorted_stats' + '_' + str(iterations))
     write_file(crossword, count, 'crossword_unsorted', maxWords)
     write_file(worst_crossword, worst_count, 'worst_crossword_unsorted', maxWords)
 

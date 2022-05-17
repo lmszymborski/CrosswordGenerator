@@ -17,7 +17,7 @@ import requests
 # https://www.baeldung.com/cs/generate-crossword-puzzle
 # https://github.com/pmaher86/blacksquare/tree/master/blacksquare
 
-EMPTY_CHAR = '▀'
+EMPTY_CHAR = '▀▀'
 
 class Placement:
     def __init__(self, x, y, direction):
@@ -418,10 +418,13 @@ def write_file(crossword, count, filename, maxWords):
         num_cols = len(crossword[0])
         for row in range(num_rows):
             for col in range(num_cols):
+                char = crossword[row][col]
+                if (char != EMPTY_CHAR):
+                    char += ' '
                 if col == num_cols - 1:
-                    f.write(crossword[row][col] + '\n')
+                    f.write(char + '\n')
                 else:
-                    f.write(crossword[row][col] + ' ')
+                    f.write(char + ' ')
         f.write('\n' + 'Total words: ' + str(count) + '/' + str(maxWords))
 
 def print_empty(crossword, clues, filename):
@@ -430,24 +433,32 @@ def print_empty(crossword, clues, filename):
         num_cols = len(crossword[0])
         for clue in clues:
             x, y = clue.x_y.split('_')
-            print(clue.num)
             crossword[int(y)][int(x)] = clue.num
-            print(crossword[int(y)][int(x)] )
         for row in range(num_rows):
             for col in range(num_cols):
                 char = crossword[row][col]
                 if char != EMPTY_CHAR and not char.isnumeric():
-                    char = '_'
+                    char = '__'
+                if char.isnumeric() and len(char) < 2:
+                    char = str(char) + ' '
                 if col == num_cols - 1:
                     f.write(char + '\n')
                 else:
                     f.write(char + ' ')
-        f.write('\nAcross\tDown')
+        f.write('\nAcross\n')
+        for clue in clues:
+            if clue.across[0]:
+                f.write(str(clue.num) + ': ' + clue.definition + '\n')
+        
+        f.write('\n\nDown\n')
+        for clue in clues:
+            if not clue.across[0]:
+                f.write(str(clue.num) + ': ' + clue.definition + '\n')
 
 
 def main():
     maxWords = 25
-    iterations = 1
+    iterations = 1000
     words_4000 = '4000_common_words.txt'
     threshold = .99
     if (words_4000):
@@ -464,10 +475,12 @@ def main():
     print_empty(crossword, clues, 'empty_puzzle')
 
     # unsorted
+    '''
     crossword, count, worst_crossword, worst_count, scores, crossword_list = repeated_generation(words, maxWords, iterations, .99, False)
     write_stats(scores, iterations, 'unsorted_stats' + '_' + str(iterations) + '_' + sample_size)
     write_file(crossword, count, 'crossword_unsorted', maxWords)
     write_file(worst_crossword, worst_count, 'worst_crossword_unsorted', maxWords)
+    '''
 
 if __name__ == '__main__':
     main()

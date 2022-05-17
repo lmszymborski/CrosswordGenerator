@@ -1,25 +1,49 @@
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ 1 ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ ▀ ▀ ▀ 2 ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ 8 7 _ _ _ _ _ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ _ ▀ ▀ _ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ _ ▀ ▀ ▀ ▀ ▀ 1 _ _ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-1 _ _ _ _ _ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ _ ▀ ▀ ▀ ▀ 1 _ _ _ _ 1 ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ _ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ ▀ _ ▀ ▀ 4 ▀ _ ▀ ▀ ▀ 2 _ _ ▀ ▀ ▀ ▀ 1 ▀ ▀ ▀ ▀ ▀
-_ 5 _ 3 _ _ _ _ _ _ _ ▀ _ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ 6 _ _ _ _ _ ▀ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ 2 _ _ 1 _ _ _ _ _ ▀ 1 _ _ 1 ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ _ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ _ ▀ ▀ 1 _ _ _ _ ▀ ▀ _ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ _ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
-▀ _ ▀ _ ▀ _ ▀ _ ▀ ▀ _ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀
-▀ _ ▀ _ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀ _ ▀ ▀ ▀ ▀ ▀ 1 _ _ _
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ 9 _ _ _ _ _ _ _ ▀ ▀ ▀
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
-▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ ▀ _ ▀ ▀ ▀
+▀▀ ▀▀ ▀▀ ▀▀ 10 11 __ __ 4  __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ 20 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ 16 __ __ __ __ ▀▀ 13 __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ 1  ▀▀ 8  ▀▀ 2  ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+22 __ __ ▀▀ 5  __ __ 3  __ __ __ __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ 23 __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ 7  __ __ __ __ __ __
+▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ 17 __ __ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ 6  __ 9  __ __ __ __
+19 ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+15 __ __ __ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ 14 __ __ 18 __
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 12 __ 21 __ __ __ ▀▀ ▀▀ ▀▀ __ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
 
-Across	Down
+Across
+6: To make real; to convert from the imaginary or fictitious into reality; to bring into real existence
+7: To cover, fill, or affect with lead
+10: To separate into two or more pieces, to fracture or crack, by a process that cannot easily be reversed for reassembly.
+12: (chiefly in the plural) A narrow passage, especially a contracted part of a stream, lake, or sea; a strait connecting two bodies of water.
+13: Something that is exported
+14: A sudden, heavy impact.
+15: Sucrose in the form of small crystals, obtained from sugar cane or sugar beet and used to sweeten food and drink.
+16: The act of very quickly closing both eyes and opening them again.
+17: A pigmented filament of keratin which grows from a follicle on the skin of humans and other mammals.
+22: A small, round spot.
+23: A negating expression; an answer that shows disagreement or disapproval
+
+
+Down
+1: The act of prescribing a rule, law, etc..
+2: A female partner in an unmarried romantic relationship.
+3: No definition found. Giving this word to you: selfesteem
+4: Facts or observations presented in support of an assertion.
+5: To think about seriously.
+8: A current (constantly changing) trend, favored for frivolous rather than practical, logical, or intellectual reasons.
+9: To modify.
+11: To regulate, be in charge of, make decisions for, reign over.
+16: A band worn around the waist to hold clothing to one's body (usually pants), hold weapons (such as a gun or sword), or serve as a decorative piece of clothing.
+18: A rich, sweet dessert food, typically made of flour, sugar and eggs and baked in an oven, and often covered in icing.
+19: An actual event, situation, or fact.
+20: A solid, more or less rigid object of metal or wood with a uniform cross-section smaller than its length.
+21: An act of rubbing.

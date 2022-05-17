@@ -99,6 +99,7 @@ def place(word, crossword, x, y, horizontal):
     return crossword
 
 def canPlace(word, crossword, x, y):
+    print('CHECKING PLACEMENT:', word, x, y)
     if len(crossword[0]) == 1: # 1d
         # check vertical alignment
         matched_letter = crossword[x][y]
@@ -141,11 +142,13 @@ def canPlace(word, crossword, x, y):
                                 break
 
                     # check down
-                    if i == len(word) - 1 and x_pos - 1 >= 0 and crossword[x_pos + 1][y] != '▀':
+                    if (word == 'product'):
+                        print(x_pos, len(crossword[x_pos - 1]))
+                    if i == len(word) - 1 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != '▀':
                         valid = False
                         break
                     # check up
-                    if i == 0 and x_pos + 1 < len(crossword) and crossword[x_pos - 1][y] != '▀':
+                    if i == 0 and x_pos + 1 >= 0 and crossword[x_pos - 1][y] != '▀':
                         valid = False
                         break
 
@@ -229,6 +232,7 @@ def place_word(words, maxWords):
     words = ['visualstudiocode', 'cloud', 'tinkerbell', 'cap', 'april', 'traderjoes', 'puma']
     words = ['cap', 'leather', 'tinkerbell', 'cloud', 'april', 'traderjoes', 'visualstudiocode', 'puma']
     words = ['provide', 'choice', 'build', 'special', 'threat', 'set', 'firm', 'popular', 'exactly', 'first', 'word', 'country', 'final', 'doctor', 'article', 'with', 'history', 'ahead', 'least', 'enjoy', 'travel', 'mother', 'away', 'hope', 'dinner', 'offer', 'clear', 'his', 'north', 'option', 'know', 'understand', 'politics', 'truth', 'herself', 'listen', 'culture', 'thank', 'around', 'activity', 'claim', 'too', 'responsibility', 'range', 'court', 'lawyer', 'Democrat', 'east', 'leg', 'believe']
+    words = ['responsibility', 'two', 'a', 'as', 'prepare', 'education', 'population', 'project', 'we', 'live', 'east', 'have', 'not', 'recognize', 'evening', 'probably', 'nearly', 'also', 'team', 'compare', 'try', 'health', 'establish', 'charge', 'specific', 'environmental', 'food', 'and', 'you', 'it', 'policy', 'finally', 'blue', 'west', 'firm', 'task', 'ball', 'its', 'data', 'matter', 'pass', 'product', 'offer', 'shoulder', 'rich', 'at', 'line', 'how', 'cold', 'business']
     ''
     print(words)
 
@@ -282,7 +286,7 @@ def place_word(words, maxWords):
                 break
     return crossword, count
 
-def write_file(crossword, filename):
+def write_file(crossword, count, filename):
     with open(filename + '.txt', 'w') as f:
         num_rows = len(crossword)
         num_cols = len(crossword[0])
@@ -292,6 +296,7 @@ def write_file(crossword, filename):
                     f.write(crossword[row][col] + '\n')
                 else:
                     f.write(crossword[row][col] + ' ')
+        f.write('\n' + 'Total words: ' + str(count))
 
 
                         
@@ -299,8 +304,8 @@ def write_file(crossword, filename):
 
 def main():
     words = load_file('common_words.txt', 50)
-    crossword = place_word(words, len(words))
-    write_file(crossword, 'crossword')
+    crossword, count = place_word(words, len(words))
+    write_file(crossword, count, 'crossword')
 
 if __name__ == '__main__':
     main()

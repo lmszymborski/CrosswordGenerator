@@ -152,7 +152,7 @@ def canPlace(word, crossword, x, y):
                     x_pos = x - slides + i
                     if (x_pos < 0 or x_pos >= len(crossword)):
                         continue
-                    if (x_pos >= 0 and word[i] != crossword[x_pos][y] and crossword[x_pos][y] != '▀'):
+                    if (x_pos >= 0 and word[i] != crossword[x_pos][y] and crossword[x_pos][y] != EMPTY_CHAR):
                         valid = False
                         break
 
@@ -161,19 +161,19 @@ def canPlace(word, crossword, x, y):
                     # check side to side
                     if not (x_pos == x):
                         if (x_pos < len(crossword) and x_pos > 0):
-                            if (y - 1 >= 0 and crossword[x_pos][y - 1] != '▀'):
+                            if (y - 1 >= 0 and crossword[x_pos][y - 1] != EMPTY_CHAR):
                                 valid = False
                                 break
-                            if (y + 1 < len(crossword[0]) and crossword[x_pos][y + 1] != '▀'):
+                            if (y + 1 < len(crossword[0]) and crossword[x_pos][y + 1] != EMPTY_CHAR):
                                 valid = False
                                 break
 
                     # check down
-                    if i == len(word) - 1 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != '▀':
+                    if i == len(word) - 1 and x_pos + 1 < len(crossword) and crossword[x_pos + 1][y] != EMPTY_CHAR:
                         valid = False
                         break
                     # check up
-                    if i == 0 and x_pos + 1 >= 0 and crossword[x_pos - 1][y] != '▀':
+                    if i == 0 and x_pos + 1 >= 0 and crossword[x_pos - 1][y] != EMPTY_CHAR:
                         valid = False
                         break
 
@@ -195,7 +195,7 @@ def canPlace(word, crossword, x, y):
                     if (y_pos < 0 or y_pos >= len(crossword[0])):
                         continue
 
-                    if not (letter == crossword[x][y_pos] or crossword[x][y_pos] == '▀'):
+                    if not (letter == crossword[x][y_pos] or crossword[x][y_pos] == EMPTY_CHAR):
                         valid = False
                         break
 
@@ -205,20 +205,20 @@ def canPlace(word, crossword, x, y):
                     # check up and down
                     if not (y_pos == y):
                         if (y_pos < len(crossword[0]) and y_pos >= 0):
-                            if (x - 1>= 0 and crossword[x - 1][y_pos] != '▀'):
+                            if (x - 1>= 0 and crossword[x - 1][y_pos] != EMPTY_CHAR):
                                 valid = False
                                 break
-                            if (x + 1 < len(crossword) and crossword[x + 1][y_pos] != '▀'):
+                            if (x + 1 < len(crossword) and crossword[x + 1][y_pos] != EMPTY_CHAR):
                                 valid = False
                                 break
 
                     # check left
-                    if i == 0 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != '▀':
+                    if i == 0 and y_pos - 1 >= 0 and crossword[x][y_pos - 1] != EMPTY_CHAR:
                         valid = False
                         break
 
                     # check right
-                    if i == len(word) - 1 and y_pos + 1 < len(crossword[0]) and crossword[x][y_pos + 1] != '▀':
+                    if i == len(word) - 1 and y_pos + 1 < len(crossword[0]) and crossword[x][y_pos + 1] != EMPTY_CHAR:
                         valid = False
                         break
 
@@ -330,7 +330,7 @@ def generate_score(crossword):
 
     for y in range(num_rows):
         for x in range(num_cols):
-            if crossword[y][x] == '▀':
+            if crossword[y][x] == EMPTY_CHAR:
                 empty += 1
             else:
                 filled += 1
@@ -436,7 +436,7 @@ def print_empty(crossword, clues, filename):
         for row in range(num_rows):
             for col in range(num_cols):
                 char = crossword[row][col]
-                if char != '▀' and not char.isnumeric():
+                if char != EMPTY_CHAR and not char.isnumeric():
                     char = '_'
                 if col == num_cols - 1:
                     f.write(char + '\n')

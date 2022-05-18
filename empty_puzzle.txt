@@ -1,49 +1,148 @@
-▀▀ ▀▀ ▀▀ ▀▀ 10 11 __ __ 4  __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ 20 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ 16 __ __ __ __ ▀▀ 13 __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ 1  ▀▀ 8  ▀▀ 2  ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-22 __ __ ▀▀ 5  __ __ 3  __ __ __ __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ 23 __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ 7  __ __ __ __ __ __
-▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
-▀▀ ▀▀ 17 __ __ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ 6  __ 9  __ __ __ __
-19 ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
-__ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
-15 __ __ __ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
-__ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ 14 __ __ 18 __
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 12 __ 21 __ __ __ ▀▀ ▀▀ ▀▀ __ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀
-▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 63 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 65 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 72 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 71 __ __ __ 70 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 29 ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 40 __ __ __ __ __ __ ▀▀ ▀▀ ▀▀ 68 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 56 ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 60 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ 58 __ __ 17 __ ▀▀ ▀▀ __ ▀▀ 23 ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ 18 ▀▀ __ ▀▀ 34 __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ 73 __ __ 81 ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 69 __ __ __ __ ▀▀ ▀▀ __ ▀▀ 86 __ __
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 47 __ __ __ __ __ ▀▀ 21 __ __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 82 __ __ __ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 5  ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 28 __ __ __ __ __ __ __ ▀▀ ▀▀ 75 __ __ 80 ▀▀ ▀▀ __ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 11 __ __ __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ 25 __ __ __ __ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+1  __ 13 __ __ 3  __ __ 2  __ __ __ __ ▀▀ ▀▀ ▀▀ 84 __ __ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 30 __ __ __ 90 __ __ __ ▀▀ ▀▀ ▀▀ 77 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ 12 __ __ __ __ __ __ __ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 37 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ 6  __ 79 __ __ __ __ 8  __ __ ▀▀ 32 __ __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ 91 __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 88 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 14 __ __ __ __ __ __ __ __ ▀▀ 41 __ __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 9  ▀▀ 16 __ __ __ __ __ __ __ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 83 ▀▀ ▀▀ ▀▀ ▀▀
+__ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 4  __ __ 7  __ __ 15 __ __ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 38 __ __ __ __ __ ▀▀ ▀▀
+__ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ 10 __ __ __ __ 22 __ __ 19 ▀▀ ▀▀ 51 ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ 27 __ __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ 67 ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ 44 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀
+▀▀ 50 61 __ __ __ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ 42 ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ 49 __ __ __ __ __ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 31 ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ 39 __ __ __ __ __ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ 24 __ 74 __ __ __ __ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ 26 ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ 46 ▀▀ __ ▀▀ ▀▀ 20 __ __ 35 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 45 87 __ __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ 89 __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 54 ▀▀ ▀▀ ▀▀ __ ▀▀ 53 __ __ __ __ __ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ 36 ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ 48 __ __ __ __ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 33 __ __ __ __ __ __ 52 ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ 43 __ __ __ 59 __ __ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ 76 __ __ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ 64 __ __ __ __
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 78 __ __ 85 ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ 55 __ 57 __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ __ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 66 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ 62 __ __ __ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
+▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ __ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀ ▀▀
 
 Across
-6: To make real; to convert from the imaginary or fictitious into reality; to bring into real existence
-7: To cover, fill, or affect with lead
-10: To separate into two or more pieces, to fracture or crack, by a process that cannot easily be reversed for reassembly.
-12: (chiefly in the plural) A narrow passage, especially a contracted part of a stream, lake, or sea; a strait connecting two bodies of water.
-13: Something that is exported
-14: A sudden, heavy impact.
-15: Sucrose in the form of small crystals, obtained from sugar cane or sugar beet and used to sweeten food and drink.
-16: The act of very quickly closing both eyes and opening them again.
-17: A pigmented filament of keratin which grows from a follicle on the skin of humans and other mammals.
-22: A small, round spot.
-23: A negating expression; an answer that shows disagreement or disapproval
+4: A meeting or gathering.
+6: One who instructs; a teacher.
+10: A person from a foreign country.
+11: Someone entrusted with a secret; a confidant.
+12: Lacking a name; not named, for example an animal not assigned to any species.
+14: A room, often in a school, where classes take place
+16: A complete domicile occupying only part of a building, especially one for rent; a flat.
+20: A single criterion.
+21: A distinguishing attribute or quality.
+24: A particular point or place in physical space.
+25: A long, narrow strip of timber bent and bolted longitudinally to the ribs of a vessel, to hold them in position and give rigidity to the framework.
+27: One who operates.
+28: The expulsion from the womb of a foetus or embryo before it is fully developed, with loss of the foetus; either naturally as a spontaneous abortion (now usually called a miscarriage), or deliberately as an induced abortion.
+30: Pertaining to a symbol.
+32: A person, such as an ambassador, who is accredited to represent a government officially in its relations with other governments or international organisations
+33: An event or community gathering, usually staged by a local community, which centers on some theme, sometimes on some unique aspect of the community.
+34: Nuclear power
+37: To join or unite (e.g. one thing to another, or as several particulars) so as to increase the number, augment the quantity or enlarge the magnitude, or so as to form into one aggregate.
+38: A civil force granted the legal authority for law enforcement and maintaining public order.
+39: To encounter or discover by accident; to happen upon.
+40: A motor vehicle for transporting large numbers of people along roads.
+41: An individual who is not happy.
+43: To the fullest extent or degree.
+45: A sight or view of the interior of anything; a deep inspection or view; introspection; frequently used with into.
+47: To make somebody able (to do, or to be, something); to give sufficient ability or power to do or to be; to give strength or ability to.
+48: A repressed or obscure utterance; an instance of muttering.
+49: An irregular line left from smearing or motion.
+50: A mutual fund.
+53: The negation in logic.
+55: Frequent repetition of the same behavior; way of behavior common to many; ordinary manner; habitual practice; method of doing, living or behaving.
+58: One of the sensations produced by the tongue in response to certain chemicals; the quality of giving this sensation.
+60: Any animal other than a human; usually only applied to land vertebrates, especially large or dangerous four-footed ones.
+62: Oneness; the state or fact of being one undivided entity.
+64: Any life form of extraterrestrial or extradimensional origin.
+65: A structure built or serving as an abode of human beings.
+66: Wife
+69: To determine the weight of an object.
+71: To take by choice into relationship (a child, heir, friend, citizen, etc.)
+73: Solid excretory product evacuated from the bowels; feces.
+75: Any raised flat surface that can be walked on: a balcony; a porch; a raised patio; a flat rooftop.
+76: The act of gaining; acquisition.
+78: Somebody who possesses great bravery and carries out extraordinary or noble deeds.
+82: The colour of the clear sky or the deep sea, between green and violet in the visible spectrum, and one of the primary additive colours for transmitted light; the colour obtained by subtracting red and green from white light using magenta and cyan filters; or any colour resembling this.
+84: The caudal appendage of an animal that is attached to its posterior and near the anus.
+86: A large body of salt water.
+89: And not (introducing a negative statement, without necessarily following one).
+91: Toward a closed, touching or engaging position.
 
 
 Down
-1: The act of prescribing a rule, law, etc..
-2: A female partner in an unmarried romantic relationship.
-3: No definition found. Giving this word to you: selfesteem
-4: Facts or observations presented in support of an assertion.
-5: To think about seriously.
-8: A current (constantly changing) trend, favored for frivolous rather than practical, logical, or intellectual reasons.
-9: To modify.
-11: To regulate, be in charge of, make decisions for, reign over.
-16: A band worn around the waist to hold clothing to one's body (usually pants), hold weapons (such as a gun or sword), or serve as a decorative piece of clothing.
-18: A rich, sweet dessert food, typically made of flour, sugar and eggs and baked in an oven, and often covered in icing.
-19: An actual event, situation, or fact.
-20: A solid, more or less rigid object of metal or wood with a uniform cross-section smaller than its length.
-21: An act of rubbing.
+1: The quality or state of being sensitive; sensitiveness.
+2: The action of competing.
+3: The act of disuniting two or more things, or the condition of being separated.
+5: The act of revealing or disclosing.
+7: The act or an instance of violating or the condition of being violated.
+8: A telecommunication device (originally mechanical, and now electronic) used for two-way talking with another person (now often shortened to phone).
+9: A temporary group or union of organizations, usually formed for a particular advantage.
+13: (focus) Of a primary or central nature, first and foremost
+15: A monocular optical instrument that magnifies distant objects, especially in astronomy.
+17: Coherent; well organized.
+18: An abridgement or summary of a longer publication.
+19: Of or dealing with languages or cultures derived from Roman influence and Latin: Italian, French, Portuguese, Spanish, Romanian, Catalan, Occitan, Corsican, etc.
+22: The act or process of guiding.
+23: To point out; to discover; to direct to a knowledge of; to show; to make known.
+25: Someone or something that reminds.
+26: Any animal or other organism that hunts and kills other organisms (their prey), primarily for food.
+29: (interrogative) When ever: emphatic form of when.
+31: Not normal; odd, unusual, surprising, out of the ordinary.
+35: The condition of being held in a state between two or more forces, which are acting in opposition to each other.
+36: The cardinal number occurring after fourteen (14) and before sixteen (16).
+37: In a contrary direction to.
+38: An objective or aim.
+42: To wish, desire.
+44: A person who builds or constructs things.
+46: A room or set of rooms, particularly:
+51: To separate into two or more pieces, to fracture or crack, by a process that cannot easily be reversed for reassembly.
+52: Money or property bequeathed to someone in a will.
+54: Riches; valuable material possessions.
+56: A slender jointed extremity of the human hand, exclusive of the thumb.
+57: The chemical element (symbol Na) with an atomic number of 11 and atomic weight of 22.98977. It is a soft, waxy, silvery, reactive alkali metal that is never found unbound in nature.
+59: To have a consequence or remnant.
+60: A small French coin, originally of silver, afterwards of copper, worth 5 deniers; also a silver coin of Henry V current in the parts of France then held by the English, worth about 8 pence .
+61: A stimulant, such as amphetamine, that increases energy and decreases appetite.
+63: The unmowed part of a golf course.
+67: An organism that is not an animal, especially an organism capable of photosynthesis. Typically a small or herbaceous organism of this kind, rather than a tree.
+68: An incidental remark made quietly so as to be heard by the person to whom it is said and not by any others in the vicinity.
+70: True facts, genuine depiction or statements of reality.
+72: A kind or helpful deed; an instance of voluntarily assisting (someone).
+73: A rough push.
+74: The act of one who chases another; a pursuit.
+75: A challenge to prove courage.
+77: The usually green and flat organ that represents the most prominent feature of most vegetative plants.
+79: Not different or other; not another or others; not different as regards self; selfsame; identical.
+80: The act of killing.
+81: Until; to, up to; as late as (a given time).
+83: Inclination towards something; predisposition, partiality, prejudice, preference, predilection.
+85: Not closed
+86: (of a person) Having sex appeal; suggestive of sex.
+87: The one that follows after this one.
+88: A place or institution for the confinement of persons held in lawful custody or detention, especially for minor offenses or with reference to some future judicial proceeding.
+90: To switch on

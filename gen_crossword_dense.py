@@ -11,6 +11,10 @@ import requests
 # return both a filled crossword and an empty crossword with clues attached to spots
 # figure out an approach to get denser crosswords
 # generate clues based on lyric and a ___ where the word is, do crossword puzzles by artist name
+# if a word does not pass through multiple words, put it back in the list
+# -- this will take a lot of time, but go through each word and give it a score based on how many words it crosses through
+# -- the highest score is placed
+# -- in case of tie, place the longest word
 
 # resources
 # https://cs.stackexchange.com/questions/123618/algorithm-to-create-dense-style-crossword-puzzles
@@ -128,6 +132,7 @@ def place(word, crossword, x, y, horizontal):
     return crossword
 
 def canPlace(word, crossword, x, y):
+    cross_score = 1
     if len(crossword[0]) == 1: # 1d
         # check vertical alignment
         matched_letter = crossword[x][y]
@@ -136,10 +141,11 @@ def canPlace(word, crossword, x, y):
         for letter in word:
             if letter == matched_letter:
                 placement = Placement(x, y - slides, False)
-                return placement, True
+                print('cross score from can place', cross_score)
+                return placement, True, cross_score
             slides += 1
 
-        return None, False
+        return None, False, 0
 
     else: #2d
         matched_letter = crossword[x][y]
@@ -148,11 +154,16 @@ def canPlace(word, crossword, x, y):
         slides = 0
         for letter in word:
             valid = True
+            cross_score = 0
             if valid and letter == matched_letter:
                 for i in range(len(word)):
                     x_pos = x - slides + i
                     if (x_pos < 0 or x_pos >= len(crossword)):
                         continue
+                    
+                    if (word[i] == crossword[x_pos][y]):
+                        cross_score += 1
+                    # check for different word interference
                     if (x_pos >= 0 and word[i] != crossword[x_pos][y] and crossword[x_pos][y] != EMPTY_CHAR):
                         valid = False
                         break
@@ -181,7 +192,7 @@ def canPlace(word, crossword, x, y):
                 # found valid spot
                 if (valid):
                     placement = Placement(y, x - slides, False)
-                    return placement, True
+                    return placement, True, cross_score
             slides += 1
 
         # check horizontal alignment
@@ -189,6 +200,7 @@ def canPlace(word, crossword, x, y):
         slides = 0
         for letter in word:
             valid = True
+            cross_score = 0
             if valid and letter == matched_letter:
                 for i in range(len(word)):
                     #x_pos = x - slides + i
@@ -196,7 +208,10 @@ def canPlace(word, crossword, x, y):
                     if (y_pos < 0 or y_pos >= len(crossword[0])):
                         continue
 
-                    if not (letter == crossword[x][y_pos] or crossword[x][y_pos] == EMPTY_CHAR):
+                    if (word[i] == crossword[x][y_pos]):
+                        cross_score += 1
+
+                    if not (word[i] == crossword[x][y_pos] or crossword[x][y_pos] == EMPTY_CHAR):
                         valid = False
                         break
 
@@ -226,11 +241,11 @@ def canPlace(word, crossword, x, y):
                 # found valid spot
                 if (valid):
                     placement = Placement(y - slides, x, True)
-                    return placement, True
+                    return placement, True, cross_score
             slides += 1
 
         # check vertical alignment
-    return None, False
+    return None, False, 0
 
 def updateRows(crossword):
     if len(crossword[0]) == 1:
@@ -248,6 +263,12 @@ def generate(words, maxWords, sort_words=True):
     #TODO: optimize
     #TODO: if word gets skipped, put back in word list. if word at end of list gets skipped, then it gets emitted
     #random.shuffle(words)
+    crossword_list = {}
+    if (sort_words):
+        words = random.sample(words, maxWords)
+        words = sorted(words, key=len)
+    else:
+        random.shuffle(words)
     '''
     #words = ['are','lxx','leather']
     #words = ['xxxdax', 'april']
@@ -259,20 +280,13 @@ def generate(words, maxWords, sort_words=True):
     words = ['provide', 'choice', 'build', 'special', 'threat', 'set', 'firm', 'popular', 'exactly', 'first', 'word', 'country', 'final', 'doctor', 'article', 'with', 'history', 'ahead', 'least', 'enjoy', 'travel', 'mother', 'away', 'hope', 'dinner', 'offer', 'clear', 'his', 'north', 'option', 'know', 'understand', 'politics', 'truth', 'herself', 'listen', 'culture', 'thank', 'around', 'activity', 'claim', 'too', 'responsibility', 'range', 'court', 'lawyer', 'Democrat', 'east', 'leg', 'believe']
     words = ['responsibility', 'two', 'a', 'as', 'prepare', 'education', 'population', 'project', 'we', 'live', 'east', 'have', 'not', 'recognize', 'evening', 'probably', 'nearly', 'also', 'team', 'compare', 'try', 'health', 'establish', 'charge', 'specific', 'environmental', 'food', 'and', 'you', 'it', 'policy', 'finally', 'blue', 'west', 'firm', 'task', 'ball', 'its', 'data', 'matter', 'pass', 'product', 'offer', 'shoulder', 'rich', 'at', 'line', 'how', 'cold', 'business']
     words = ['dui', 'april', 'leather', 'cloud']
-    words = ['xxxx', 'abcd', 'aegh', 'slekt', 'selkqj', 'sdkjg']
     '''
-    crossword_list = {}
-    if (sort_words):
-        words = random.sample(words, maxWords)
-        words = sorted(words, key=len)
-    else:
-        random.shuffle(words)
+
     word = words.pop()
     horizontal = True
     crossword = place(word, None, 0, 0, horizontal)
     count = 1
     while count < maxWords and len(words) > 0:
-        word = words.pop()
         if len(crossword[0]) == 1:
             is1d = True
         else:
@@ -283,39 +297,57 @@ def generate(words, maxWords, sort_words=True):
             rows = 1
             cols = len(crossword)
         spotFound = False
-        for letter in word:
-            for y in range(rows):
-                for x in range(cols):
-                    if len(crossword[0]) == 1:
-                        is1d = True
-                    else:
-                        is1d = False
-                    new_x = x
-                    new_y = y
+        max_cross_word_score = 0
+        max_cross_word_placement = None
+        max_cross_word = ''
+        for word in words:
+            print('checking ' + word)
+            for letter in word:
+                for y in range(rows):
+                    for x in range(cols):
+                        if len(crossword[0]) == 1:
+                            is1d = True
+                        else:
+                            is1d = False
+                        new_x = x
+                        new_y = y
                     
-                    if (not is1d):
-                        tmpx = x
-                        new_x = y
-                        new_y = tmpx
+                        if (not is1d):
+                            tmpx = x
+                            new_x = y
+                            new_y = tmpx
                     
-                    if crossword[new_x][new_y] == letter:
-                        placement, ok = canPlace(word, crossword, new_x, new_y)
-                        if ok:
-                            crossword = place(word, crossword, placement.x, placement.y, placement.direction)
-                            count += 1
-                            spotFound = True
-                            crossword_list[word] = placement
-                            if (placement.x < 0):
-                                for word_place in crossword_list:
-                                    crossword_list[word_place].x -= placement.x
-                            if (placement.y < 0):
-                                for word_place in crossword_list:
-                                    crossword_list[word_place].y -= placement.y
-                            break
-                if spotFound:
-                    break
-            if spotFound:
-                break
+                        if crossword[new_x][new_y] == letter:
+                            placement, ok, cross_score = canPlace(word, crossword, new_x, new_y)
+                            if ok:
+                                if (cross_score > max_cross_word_score):
+                                    print('cross score', cross_score)
+                                    max_cross_word_score = cross_score
+                                    max_cross_word_placement = placement
+                                    max_cross_word = word
+                                break
+
+        if (max_cross_word_placement != None):
+            # put the max cross word in the crossword
+            crossword = place(max_cross_word, crossword, max_cross_word_placement.x, max_cross_word_placement.y, max_cross_word_placement.direction)
+            count += 1
+            print('max score found for word ' + max_cross_word + ': ' + str(max_cross_word_score))
+            print(crossword)
+            crossword_list[word] = placement
+            if (max_cross_word_placement.x < 0):
+                for word_place in crossword_list:
+                    print(crossword_list)
+                    print(crossword_list[word_place])
+                    print(max_cross_word_placement)
+                    crossword_list[word_place].x -= max_cross_word_placement.x
+            if (max_cross_word_placement.y < 0):
+                for word_place in crossword_list:
+                    print(crossword_list)
+                    print(crossword_list[word_place])
+                    print(max_cross_word_placement)
+                    crossword_list[word_place].y -= max_cross_word_placement.y
+            words.remove(max_cross_word)
+
     return crossword, count, crossword_list
 
 def generate_score(crossword):
@@ -360,8 +392,11 @@ def repeated_generation(words, maxWords, iterations, threshold, sort_words):
         print("Iteration", i + 1, "of", iterations)
         words = copy.deepcopy(save_word_list)
         crossword, count, crossword_list = generate(words, maxWords, sort_words)
+        print(crossword)
         score = generate_score(crossword)
         scores.append(score)
+        print(score)
+        print(threshold * maxWords)
         if (score > maxScore and count > threshold * maxWords):
             maxScore = score
             result = crossword
@@ -458,14 +493,15 @@ def print_empty(crossword, clues, filename):
 
 
 def main():
-    maxWords = 99
-    iterations = 1000
-    f = '4000_common_words.txt'
-    threshold = .99
+    iterations = 1
+    f = 'common_words.txt'
+    threshold = 0
     words = load_file(f)
+    maxWords = 25
+
 
     # sorted
-    crossword, count, worst_crossword, worst_count, scores, crossword_list = repeated_generation(words, maxWords, iterations, .99, True)
+    crossword, count, worst_crossword, worst_count, scores, crossword_list = repeated_generation(words, maxWords, iterations, .99, False)
     print(crossword)
     #write_stats(scores, iterations, 'sorted_stats' + '_' + str(iterations) + '_' + sample_size)
     write_file(crossword, count, 'crossword', maxWords)

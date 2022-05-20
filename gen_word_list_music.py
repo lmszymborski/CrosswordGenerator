@@ -46,34 +46,43 @@ def authorize():
     print(response)
     return response['access_token']
     
-def get_artist_tracks(artist_id, token):
+def get_artist_tracks(artist_name, token):
+    artist_id = get_id(fix_artist_name(artist_name), token)
     country = 'USA'
     url = 'https://api.spotify.com/v1/artists/' + artist_id + '/top-tracks?market=ES'
     headers = {"Authorization": "Bearer " + token}
     data = {"country": country}
     r = requests.get(url, headers=headers)
     response = r.json()
-    top_tracks = {}
+    top_tracks = []
+    
     for track in response['tracks']:
-        print(track['name'])
-        artists = []
-        for artist in track['artists']:
-            artists.append(artist['name'])
-        top_tracks[track['name']] = artists
-    print(top_tracks)
+        #print(track['name'])
+        top_tracks.append(track['name'])
+        #artists = []
+        #for artist in track['artists']:
+        #    artists.append(artist['name'])
+        #top_tracks[track['name']] = artists
+    
+    #print(top_tracks)
     return top_tracks
     #print(response)
 
+def fix_artist_name(name):
+    name = name.replace(" ", "%2B")
+    return name
 
 def main():
-    token = authorize()
-    artist = "Ariana Grande"
-    ariana_id = get_id("Ariana%2BGrande", token)
-    print(ariana_id)
-    tracks = get_artist_tracks(ariana_id, token)
+    #token = authorize()
+    #ariana_id = get_id("Ariana%2BGrande", token)
+    #print(artist)
+    #tracks = get_artist_tracks("Of Monsters and Men", token)
+    print(tracks)
+    '''
     for track in tracks:
         #find_lyrics(tracks[track], track)
         find_lyrics(artist, track)
+    '''
 
 
 if __name__ == '__main__':
